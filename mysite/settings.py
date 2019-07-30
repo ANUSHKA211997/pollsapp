@@ -31,13 +31,14 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'polls.apps.PollsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'polls',
 ]
 
 MIDDLEWARE = [
@@ -67,6 +68,12 @@ TEMPLATES = [
         },
     },
 ]
+
+# REST_FRAMEWORK={
+#     'DEFAULT_PERMISSION_CLASSES':[
+#         'rest_framework.permission.DjangoModelPermissionOrAnonReadOnly'
+#     ]
+# }
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
