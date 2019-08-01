@@ -8,23 +8,23 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from .serializer import QuestionSer,ChoiceSer
 
-# class IndexView(generic.ListView):
-#     template_name = 'polls/index.html'
-#     context_object_name = 'latest_question_list'
+class IndexView(generic.ListView):
+    template_name = 'polls/index.html'
+    context_object_name = 'latest_question_list'
+
+    def get_queryset(self):
+        """Return the last five published questions."""
+        return Question.objects.order_by('-pub_date')[:5]
+
+# class IndexView(APIView):
+#     def get(self,request):
+#         # question=Question.objects.all()
+#         choice=Choice.objects.all()
+#         serializer=ChoiceSer(choice,many=True)
+#         return Response(serializer.data)
 #
-#     def get_queryset(self):
-#         """Return the last five published questions."""
-#         return Question.objects.order_by('-pub_date')[:5]
-
-class IndexView(APIView):
-    def get(self,request):
-        # question=Question.objects.all()
-        choice=Choice.objects.all()
-        serializer=ChoiceSer(choice,many=True)
-        return Response(serializer.data)
-
-    def post(self):
-        pass
+#     def post(self):
+#         pass
 
 
 

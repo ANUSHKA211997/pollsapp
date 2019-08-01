@@ -9,7 +9,7 @@ __pycache__/
 # Cache Folders
 .idea/
 
-db.sqlite3
+
 
 #
 # Distribution / packaging
